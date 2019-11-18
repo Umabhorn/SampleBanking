@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>User List</h1>
+</div>
+
+<div class="row">
+    <div class="box-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="white-box">
+                    <div class="table-responsive">
+                        <table id="example1" class="tablesaw table-bordered table-hover table" data-tablesaw-mode="swipe">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>EmailAddress</th>
+                                    <th>IsActive</th>
+                                    <th>Account</th>
+                                    <th>EDIT</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td><a href="@Url.Action("User", "Home", new {id= @item.ID},null)">@item.ID</a></td>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.EmailAddress</td>
+                                    <td>@item.IsActive</td>
+                                    <td><a href="@Url.Action("AccountList", "Home", new {id= @item.ID },null)"><i class="fa fa-edit"></i> Account</a></td>
+                                    <td><a href="@Url.Action("User", "Home", new {id= @item.ID , inaction="Edit"},null)"><i class="fa fa-edit"></i> Edit</a></td>
+
+                                </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>EmailAddress</th>
+                                    <th>IsActive</th>
+                                    <th>Account</th>
+                                    <th>EDIT</th>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("User", "Home")'">Create User</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿@model SampleSYSBANK.BankingService.AccountDTO
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Header{
+    <script type="text/javascript">
+
+         $(document).ready(function () {
+             function set(value) {
+                 return value;
+             }
+             var inaction = set(@Html.Raw(Json.Encode(ViewBag.inAction)));
+             console.log(inaction);
+             if (inaction == "Create")
+             {
+                 $("#btnEdit").hide();
+                 $("#btnDelete").hide();
+             }
+             else
+             {
+                 $("#btnSave").hide();
+             }
+
+             $("#btnSave").click(function () {
+                 var IBAN = $("#IBAN").val();
+
+                 if (IBAN == "" ) {
+                     alert("กรุณาใส่ข้อมูลให้ครบทุกช่อง");
+                     return false;
+                 }
+
+             });
+             $(window).load(function () {
+
+             });
+
+         });
+
+    </script>
+    <script type="text/javascript">
+        function isNumberKey(evt) {
+            console.log(evt);
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode != 46 && charCode > 31
+                && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+}
+
+<div class="col-xs-12">
+    <div class="white-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Create Account</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                @using (Html.BeginForm("Account", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <form role="form">
+                        <!-- text input -->
+                        <div class="form-group">
+
+                            @Html.LabelFor(model => model.IBAN) &nbsp;&nbsp;<a href="http://randomiban.com/?country=Netherlands" target="_blank">Get IBAN</a>
+                            @Html.TextBoxFor(model => model.IBAN, new { @class = "form-control", placeholder = "Enter ..." })
+
+                            <label>Deposit</label>
+                            @Html.TextBoxFor(model => model.TotalBalance, new { @class = "form-control", placeholder = "Enter ...", onkeypress = "return isNumberKey(this.value)" })
+
+                            @Html.TextBoxFor(model => model.User_ID, new { @class = "form-control", placeholder = "Enter ...", @style = "display:none;", Value = (string)ViewBag.UserID })
+                            @Html.TextBoxFor(model => model.IsActive, new { @class = "form-control", placeholder = "Enter ...", @style = "display:none;" })
+
+                        </div>
+
+
+                        <div class="box-footer">
+                            <input type="submit" id="btnSave" class="btn btn-primary" value="Save" name="action:AccountSave" onclick="" />
+                            <input type="submit" id="btnEdit" class="btn btn-primary" value="Edit" name="action:AccountEdit" />
+                            <input type="submit" id="btnDelete" class="btn btn-danger" value="Delete" name="action:AccountDelete" />
+                            <input type="submit" id="btnCancel" class="btn btn-default" value="Cancel" name="action:AccountCancel" />
+
+                        </div>
+
+
+                    </form>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+

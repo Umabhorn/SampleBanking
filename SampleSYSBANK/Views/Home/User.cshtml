@@ -1,0 +1,136 @@
+﻿@model SampleSYSBANK.BankingService.UserDTO
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    <script type="text/javascript">
+
+         $(document).ready(function () {
+             function set(value) {
+                 return value;
+             }
+             var inaction = set(@Html.Raw(Json.Encode(ViewBag.inAction)));
+             console.log(inaction);
+             if (inaction == "Create")
+             {
+                 $("#btnEdit").hide();
+                 $("#btnDelete").hide();
+             }
+             else
+             {
+                 $("#btnSave").hide();
+             }
+
+             $("#btnSave").click(function () {
+                 var FN = $("#FirstName").val();
+                 var LN = $("#LastName").val();
+                 var MN = $("#MobileNo").val();
+                 var CI = $("#CitizenID").val();
+                 var PI = $("#PassportID").val();
+                 var EMA = $("#EmailAddress").val();
+                 console.log(FN);
+                 if (FN == "" || LN == "" || MN == "" || EMA == "" ) {
+                     alert("กรุณาใส่ข้อมูลให้ครบทุกช่อง");
+                     return false;
+                 }
+                 if (PI == "" && CI == "") {
+                     alert("กรุณาใส่ข้อมูล CitizenID หรือ PassportID");
+                     return false;
+                 }
+             }
+
+             );
+             $("#btnEdit").click(function () {
+                 var FN = $("#FirstName").val();
+                 var LN = $("#LastName").val();
+                 var MN = $("#MobileNo").val();
+                 var CI = $("#CitizenID").val();
+                 var PI = $("#PassportID").val();
+                 var EMA = $("#EmailAddress").val();
+                 console.log(FN);
+                 if (FN == "" || LN == "" || MN == "" || EMA == "" ) {
+                     alert("กรุณาใส่ข้อมูลให้ครบทุกช่อง");
+                     return false;
+                 }
+                 if (PI == "" && CI == "") {
+                     console.log(PI);
+                     console.log(CI);
+                     alert("กรุณาใส่ข้อมูล CitizenID หรือ PassportID");
+                     return false;
+                 }
+             });
+             $(window).load(function () {
+
+             });
+
+         });
+
+    </script>
+    <script type="text/javascript">
+        function isNumberKey(evt) {
+            console.log(evt);
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode != 46 && charCode > 31
+                && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+}
+
+<div class="col-xs-12">
+    <div class="white-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">User @ViewBag.inAction</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                @using (Html.BeginForm("User", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <form role="form">
+                        <!-- text input -->
+                        <div class="form-group">
+                            @*  @Html.LabelFor(model => model.CodeColor)
+                                @Html.TextBoxFor(model => model.CodeColor, new { @class = "form-control", placeholder = "Enter ..." })*@
+
+                            @Html.LabelFor(model => model.FirstName)
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "Enter ..." })
+
+                            @Html.LabelFor(model => model.LastName)
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Enter ..." })
+
+                            @Html.LabelFor(model => model.CitizenID)
+                            @Html.TextBoxFor(model => model.CitizenID, new { @class = "form-control", placeholder = "Enter ...", onkeypress = "return isNumberKey(this.value)" })
+
+                            @Html.LabelFor(model => model.PassportID)
+                            @Html.TextBoxFor(model => model.PassportID, new { @class = "form-control", placeholder = "Enter ..." })
+
+                            @Html.LabelFor(model => model.MobileNo)
+                            @Html.TextBoxFor(model => model.MobileNo, new { @class = "form-control", placeholder = "Enter ..." })
+
+                            @Html.LabelFor(model => model.EmailAddress)
+                            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", placeholder = "Enter ..." })
+                            @Html.TextBoxFor(model => model.IsActive, new { @class = "form-control", placeholder = "Enter ...", @style = "display:none;" })
+
+                        </div>
+
+
+                        <div class="box-footer">
+                            <input type="submit" id="btnSave" class="btn btn-primary" value="Save" name="action:UserSave" onclick="" />
+                            <input type="submit" id="btnEdit" class="btn btn-primary" value="Edit" name="action:UserEdit" />
+                            <input type="submit" id="btnDelete" class="btn btn-danger" value="Delete" name="action:UserDelete" />
+                            <input type="submit" id="btnCancel" class="btn btn-default" value="Cancel" name="action:UserCancel" />
+
+                        </div>
+
+
+                    </form>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

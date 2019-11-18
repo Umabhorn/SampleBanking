@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Statement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="jumbotron">
+    <h1>Statement : @ViewBag.IBAN</h1>
+</div>
+
+<div class="row">
+    <div class="box-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="white-box">
+                    <div class="table-responsive">
+                        <table id="example1" class="tablesaw table-bordered table-hover table" data-tablesaw-mode="swipe">
+                            <thead>
+                                <tr>
+                                    <th>CreateDate</th>
+                                    <th>FullMoney</th>
+                                    <th>Deposit</th>
+                                    <th>Withdraw</th>
+                                    <th>Fee</th>
+                                    <th>Balance</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                        {
+                                <tr>
+                                    <td>@item.CreateDate</td>
+                                    <td>@item.FullMoney</td>
+                                    <td>@item.Deposit</td>
+                                    <td>@item.Withdraw</td>
+                                    <td>@item.Fee</td>
+                                    <td>@item.Balance</td>
+                                    <td>@item.Req_No</td>
+                                </tr>
+                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>CreateDate</th>
+                                    <th>FullMoney</th>
+                                    <th>Deposit</th>
+                                    <th>Withdraw</th>
+                                    <th>Fee</th>
+                                    <th>Balance</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("AccountList", "Home",new { id=ViewBag.UserID})'">BACK</button>
+            </div>
+        </div>
+    </div>
+</div>

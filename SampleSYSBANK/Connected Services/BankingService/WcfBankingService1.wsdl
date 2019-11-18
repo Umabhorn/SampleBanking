@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WcfBankingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50322/WcfBankingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50322/WcfBankingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50322/WcfBankingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfBankingService.DataContract" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWcfBankingService_AddAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccount" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_AddAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_DataAccountBYUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DataAccountBYUser" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_DataAccountBYUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DataAccountBYUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetAccountBankRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountBankRecord" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetAccountBankRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountBankRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetRecordByIBAN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordByIBAN" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetRecordByIBAN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordByIBANResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_AddStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStatement" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_AddStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateStatement" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_DataStatementByIBAN_InputMessage">
+    <wsdl:part name="parameters" element="tns:DataStatementByIBAN" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_DataStatementByIBAN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DataStatementByIBANResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetStatementBankRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementBankRecord" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetStatementBankRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementBankRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetRecordByReq_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordByReq" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetRecordByReq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordByReqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_AddTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_AddTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetAllByIBAN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllByIBAN" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetAllByIBAN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllByIBANResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetTransactionBankRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionBankRecord" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetTransactionBankRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionBankRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateUser" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_UpDateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpDateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_DataUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_DataUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DataUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetUserBankRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserBankRecord" />
+  </wsdl:message>
+  <wsdl:message name="IWcfBankingService_GetUserBankRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserBankRecordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWcfBankingService">
+    <wsdl:operation name="AddAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/AddAccount" message="tns:IWcfBankingService_AddAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/AddAccountResponse" message="tns:IWcfBankingService_AddAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpDateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateAccount" message="tns:IWcfBankingService_UpDateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateAccountResponse" message="tns:IWcfBankingService_UpDateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DataAccountBYUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/DataAccountBYUser" message="tns:IWcfBankingService_DataAccountBYUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/DataAccountBYUserResponse" message="tns:IWcfBankingService_DataAccountBYUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBankRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/GetAccountBankRecord" message="tns:IWcfBankingService_GetAccountBankRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/GetAccountBankRecordResponse" message="tns:IWcfBankingService_GetAccountBankRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordByIBAN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/GetRecordByIBAN" message="tns:IWcfBankingService_GetRecordByIBAN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/GetRecordByIBANResponse" message="tns:IWcfBankingService_GetRecordByIBAN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/AddStatement" message="tns:IWcfBankingService_AddStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/AddStatementResponse" message="tns:IWcfBankingService_AddStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpDateStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateStatement" message="tns:IWcfBankingService_UpDateStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateStatementResponse" message="tns:IWcfBankingService_UpDateStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DataStatementByIBAN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/DataStatementByIBAN" message="tns:IWcfBankingService_DataStatementByIBAN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/DataStatementByIBANResponse" message="tns:IWcfBankingService_DataStatementByIBAN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementBankRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/GetStatementBankRecord" message="tns:IWcfBankingService_GetStatementBankRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/GetStatementBankRecordResponse" message="tns:IWcfBankingService_GetStatementBankRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordByReq">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/GetRecordByReq" message="tns:IWcfBankingService_GetRecordByReq_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/GetRecordByReqResponse" message="tns:IWcfBankingService_GetRecordByReq_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/AddTransaction" message="tns:IWcfBankingService_AddTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/AddTransactionResponse" message="tns:IWcfBankingService_AddTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpDateTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateTransaction" message="tns:IWcfBankingService_UpDateTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateTransactionResponse" message="tns:IWcfBankingService_UpDateTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllByIBAN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/GetAllByIBAN" message="tns:IWcfBankingService_GetAllByIBAN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/GetAllByIBANResponse" message="tns:IWcfBankingService_GetAllByIBAN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionBankRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/GetTransactionBankRecord" message="tns:IWcfBankingService_GetTransactionBankRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/GetTransactionBankRecordResponse" message="tns:IWcfBankingService_GetTransactionBankRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/AddUser" message="tns:IWcfBankingService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/AddUserResponse" message="tns:IWcfBankingService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpDateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateUser" message="tns:IWcfBankingService_UpDateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/UpDateUserResponse" message="tns:IWcfBankingService_UpDateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DataUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/DataUser" message="tns:IWcfBankingService_DataUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/DataUserResponse" message="tns:IWcfBankingService_DataUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBankRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfBankingService/GetUserBankRecord" message="tns:IWcfBankingService_GetUserBankRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfBankingService/GetUserBankRecordResponse" message="tns:IWcfBankingService_GetUserBankRecord_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWcfBankingService" type="tns:IWcfBankingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAccount">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/AddAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpDateAccount">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/UpDateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataAccountBYUser">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/DataAccountBYUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBankRecord">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/GetAccountBankRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordByIBAN">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/GetRecordByIBAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStatement">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/AddStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpDateStatement">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/UpDateStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataStatementByIBAN">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/DataStatementByIBAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementBankRecord">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/GetStatementBankRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordByReq">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/GetRecordByReq" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTransaction">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/AddTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpDateTransaction">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/UpDateTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllByIBAN">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/GetAllByIBAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionBankRecord">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/GetTransactionBankRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpDateUser">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/UpDateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataUser">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/DataUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBankRecord">
+      <soap:operation soapAction="http://tempuri.org/IWcfBankingService/GetUserBankRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WcfBankingService">
+    <wsdl:port name="BasicHttpBinding_IWcfBankingService" binding="tns:BasicHttpBinding_IWcfBankingService">
+      <soap:address location="http://localhost:50322/WcfBankingService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

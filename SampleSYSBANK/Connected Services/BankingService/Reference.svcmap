@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="10b664e6-b486-4d91-80d6-a69ed49ebc48" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50322/WcfBankingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WcfBankingService3.xsd" MetadataType="Schema" ID="6cf5b442-2b1a-4d8b-9be6-9949df38299f" SourceId="1" SourceUrl="http://localhost:50322/WcfBankingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WcfBankingService31.xsd" MetadataType="Schema" ID="1a346849-d0e7-4178-b5be-dd7618a54a6b" SourceId="1" SourceUrl="http://localhost:50322/WcfBankingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WcfBankingService1.disco" MetadataType="Disco" ID="528ee81c-b964-4a68-9535-b50ad947a6fc" SourceId="1" SourceUrl="http://localhost:50322/WcfBankingService.svc?disco" />
+    <MetadataFile FileName="WcfBankingService32.xsd" MetadataType="Schema" ID="5d37c01f-b6da-4639-9246-c73c38a9dd5b" SourceId="1" SourceUrl="http://localhost:50322/WcfBankingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WcfBankingService1.wsdl" MetadataType="Wsdl" ID="897b8803-6750-40c0-ae63-76a251380cf7" SourceId="1" SourceUrl="http://localhost:50322/WcfBankingService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

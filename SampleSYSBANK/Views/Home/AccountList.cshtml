@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "AccountList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Account List</h1>
+</div>
+
+<div class="row">
+    <div class="box-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="white-box">
+                    <div class="table-responsive">
+                        <table id="example1" class="tablesaw table-bordered table-hover table" data-tablesaw-mode="swipe">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>IBAN</th>
+                                    <th>TotalBalance</th>
+                                    <th>UpdateDate</th>
+                                    <th>UpdateBy</th>
+                                    <th>IsActive</th>
+                                    <th>STATEMENT</th>
+                                    <th>DEPOSIT</th>
+                                    <th>WITHDRAW</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td><a href="@Url.Action("Account", "Home", new {id= @item.ID,usrid =@ViewBag.UserID },null)">@item.ID</a></td>
+                                    <td>@item.IBAN</td>
+                                    <td>@item.TotalBalance</td>
+                                    <td>@item.UpdateDate</td>
+                                    <td>@item.UpdateBy</td>
+                                    <td>@item.IsActive</td>
+                                    <td><a href="@Url.Action("Statement", "Home", new {iban= @item.IBAN,usrid=ViewBag.UserID},null)"><i class="fa fa-edit"></i> STATEMENT</a></td>
+                                    <td><a href="@Url.Action("Deposit", "Home", new {iban= @item.IBAN,usrid=ViewBag.UserID },null)"><i class="fa fa-edit"></i> DEPOSIT</a></td>
+                                    <td><a href="@Url.Action("Withdraw", "Home", new {iban= @item.IBAN,usrid=ViewBag.UserID },null)"><i class="fa fa-edit"></i> WITHDRAW</a></td>
+                                </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>IBAN</th>
+                                    <th>TotalBalance</th>
+                                    <th>UpdateDate</th>
+                                    <th>UpdateBy</th>
+                                    <th>IsActive</th>
+                                    <th>STATEMENT</th>
+                                    <th>DEPOSIT</th>
+                                    <th>WITHDRAW</th>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Account", "Home",new { usrid=ViewBag.UserID})'">Create Account</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

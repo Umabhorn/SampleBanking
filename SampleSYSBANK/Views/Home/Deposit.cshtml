@@ -1,0 +1,98 @@
+﻿@model SampleSYSBANK.BankingService.StatementDTO
+@{
+    ViewBag.Title = "Deposit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Header{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            function set(value) {
+                return value;
+            }
+
+            $("#btnSave").click(function () {
+                var TO = $("#IBANTo").val();
+                var FM = $("#FullMoney").val();
+                var Fee = $("#Fee").val();
+                var DP = $("#Deposit").val();
+                if (TO == "" || FM == "" || Fee == "" || DP == "") {
+                    alert("กรุณาใส่ข้อมูลให้ครบทุกช่อง");
+                    return false;
+                }
+            });
+            $("#FullMoney").change(function () {
+                var fullmoney = $("#FullMoney").val();
+                if (fullmoney != "") {
+                    var fee = (parseFloat(fullmoney) * parseFloat(0.01));
+                    var deposit = parseFloat(fullmoney) - parseFloat(fee);
+                    $("#Fee").val(fee);
+                    $("#Deposit").val(deposit);
+                }
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+        function isNumberKey(evt) {
+            console.log(evt);
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode != 46 && charCode > 31
+                && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+}
+
+<div class="col-xs-12">
+    <div class="white-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Deposit @ViewBag.IBAN</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                @using (Html.BeginForm("DepositSave", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <form role="form">
+                        <!-- text input -->
+                        <div class="form-group">
+
+
+                            @Html.LabelFor(model => model.IBANTo)
+                            @Html.TextBoxFor(model => model.IBANTo, new { @class = "form-control", placeholder = "Enter ...", Value = (string)ViewBag.IBAN, @readonly = "readonly" })
+
+
+                            <label>Balance</label>
+                            @Html.TextBoxFor(model => model.PrevBalanceTo, new { @class = "form-control", placeholder = "Enter ...", Value = ViewBag.Balance, @readonly = "readonly" })
+
+                            @Html.LabelFor(model => model.FullMoney)
+                            @Html.TextBoxFor(model => model.FullMoney, new { @class = "form-control", placeholder = "Enter ...", onkeypress = "return isNumberKey(this.value)"})
+
+                            @Html.LabelFor(model => model.Fee)
+                            @Html.TextBoxFor(model => model.Fee, new { @class = "form-control", placeholder = "Enter ...", onkeypress = "return isNumberKey(this.value)", @readonly = "readonly" })
+
+                            @Html.LabelFor(model => model.Deposit)
+                            @Html.TextBoxFor(model => model.Deposit, new { @class = "form-control", placeholder = "Enter ...", onkeypress = "return isNumberKey(this.value)", @readonly = "readonly" })
+
+                        </div>
+
+
+                        <div class="box-footer">
+                            <input type="submit" id="btnSave" class="btn btn-primary" value="Save" name="action:DepositSave" onclick="" />
+                            <input type="submit" id="btnCancel" class="btn btn-default" value="Cancel" name="action:DepositCancel" />
+
+                        </div>
+
+
+                    </form>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
